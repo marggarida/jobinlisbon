@@ -1,4 +1,4 @@
-const PORT = process.env.PORT ||heroku --version 8000
+const PORT = process.env.PORT || 8000
 const express = require('express')
 const axios = require('axios')
 const cheerio = require('cheerio')
@@ -42,8 +42,9 @@ sites.forEach(sites => {
 
 })
 
-app.get('/jobsearch', (request, response) => {
-    response.json('Bem vindo às ofertas de trabalho em destaque para Lisboa')
+app.get('/', (request, response) => {
+    response.send('Bem vindo às ofertas de trabalho em destaque para Lisboa<br />  \
+    Use /jobsearch para obter e pesquisar a lista de ofertas de trabalho.')
 })
 
 
@@ -82,4 +83,4 @@ app.get('/searchjob/:newjobId',  (request, response) => {
 
 })
 
-app.listen(PORT, () => console.log('server running on port $PORT'))
+app.listen(PORT, () => console.log(`server running on port ${PORT}`))
